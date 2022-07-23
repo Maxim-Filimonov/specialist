@@ -1,33 +1,18 @@
-import "./App.css";
-import Button from "./components/Button";
-
-const buttons = [
-  { value: 'Кнопка1', onClick: () => console.log(1), id: 1 },
-  { value: 'Кнопка2', onClick: () => console.log(2), id: 2 },
-  { value: 'Кнопка3', onClick: () => console.log(3), id: 3 },
-  { value: 'Кнопка4', onClick: () => console.log(4), id: 4 },
-]
-const renderBtn = ({ value, onClick, id }) => (
-  <Button value={value} onClickHandler={onClick} key={id} />
-)
+import { Link } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <div>
-        <Button value="Моя кнопка" />
-        {/* {buttons.map((value) => {
-          return (
-            <Button value={value} />
-          );
-        }
-        )} */}
-      </div>
-      <header>
-        <h1>Привет, мир!</h1>
-
-      </header>
-    </div>
-  );
+    <nav
+      style={{
+        borderBottom: "solid 1px",
+        paddingBottom: "1rem",
+      }}
+    >
+      <Link to="/invoices">Invoices</Link> |{" "}
+      <Link to="/invoices/123">Latest invoice</Link> |{" "}
+      <Link to="/expenses">Expenses</Link>
+    </nav>
+  )
 }
+
 export default App;
